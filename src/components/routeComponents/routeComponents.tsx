@@ -1,25 +1,24 @@
+import { useContext } from "react";
 import { Route } from "react-router-dom";
 import About from "../linksComponents/about/about";
 import Home from "../linksComponents/home/home";
-import Signin from "../linksComponents/sign-in/sign-in";
-import Signup from "../linksComponents/sign-up/sign-up";
-import Pc from "../linksComponents/pc/pc";
 import Products from "../linksComponents/products/products";
-import Playstation from "../linksComponents/playstation/playstation";
-import Xbox from "../linksComponents/xbox/xbox";
+import ProtectedRoute from "../ProtectedRoute/protectedRoute";
+import { UsersContext } from "../routes/provider";
 
-const Routecomponents = (): JSX.Element => (
-  <div className="nav-components">
-    <Route exact path="/home" component={Home} />
-    <Route path="/products" component={Products} />
-    <Route path="/pc" component={Pc} />
-    <Route path="/playstation" component={Playstation} />
-    <Route path="/xbox" component={Xbox} />
-    <Route path="/about" component={About} />
-    <Route path="/sign-in" component={Signin} />
-    <Route path="/sign-up" component={Signup} />
-    {/* <Route path="*" component={Home} /> */}
-  </div>
-);
+const Routecomponents = (): JSX.Element => {
+  const { loggedUser } = useContext(UsersContext);
+
+  return (
+    <div>
+      <Route path="/home" render={() => <Home />} />
+      <ProtectedRoute path="/products" loggedUser={loggedUser} component={Products} />
+      <ProtectedRoute path="/about" loggedUser={loggedUser} component={About} />
+      <Route path="/products" render={() => <Products />} />
+      <Route path="/sign-in" render={() => <Home />} />
+      <Route path="/sign-up" render={() => <Home />} />
+    </div>
+  );
+};
 
 export default Routecomponents;

@@ -1,7 +1,7 @@
 .item {
   white-space: nowrap;
   color: white;
-  padding: 5px 15px;
+  padding: 5px 12px;
   display: block;
   border-color: transparent;
   transition: 0.1s linear;
@@ -13,6 +13,6 @@
   }
 }
 
-a.active {
+.item.active {
   color: gold;
 }
