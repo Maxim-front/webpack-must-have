@@ -1,6 +1,7 @@
 import { getApiCardResourse } from "@/utils/network";
-import { lazy, Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { API_PRODUCT_CARDS } from "../../../constants/api";
+import Gamecards from "../home/gameCards/gameCards";
 import Searchbar from "../home/searchBar/searchBar";
 import Filter from "./filter/filter";
 import styles from "./products.module.scss";
@@ -26,12 +27,14 @@ const Products = ({ category }: ProductsProps): JSX.Element => {
   const [age, setAge] = useState("all ages");
   const [sortCriteria, setSortCriteria] = useState("stars");
   const [sortType, setSortType] = useState("asc");
+  const [isLoading, setIsLoading] = useState(false);
 
   const getResponse = async (param: string) => {
-    console.log(param);
+    setIsLoading(true);
     try {
       const res = await getApiCardResourse<Array<Card>>(param);
       setItems(res);
+      setIsLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -71,20 +74,16 @@ const Products = ({ category }: ProductsProps): JSX.Element => {
     }
   };
 
-  const GameCards = lazy(() => import("../home/gameCards/gameCards"));
-
   return (
     <div className={styles.products_page}>
       <Filter onchange={onChange} />
       <div className={styles.right_components}>
         <Searchbar />
-        <Suspense
-          fallback={
-            <img src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" alt="" className={styles.loader} />
-          }
-        >
-          <GameCards items={items} title="Products" />
-        </Suspense>
+        {isLoading ? (
+          <img src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" alt="" className={styles.loader} />
+        ) : (
+          <Gamecards items={items} title="Products" />
+        )}
       </div>
     </div>
   );
