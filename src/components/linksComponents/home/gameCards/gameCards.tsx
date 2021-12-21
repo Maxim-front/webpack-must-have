@@ -1,7 +1,3 @@
-import { useEffect, useState } from "react";
-import { API_CARDS } from "../../../../constants/api";
-import { getApiCardResourse } from "../../../../utils/network";
-
 import styles from "./gameCards.module.scss";
 import RenderCards from "./renderCards";
 
@@ -14,26 +10,15 @@ interface Card {
   stars: number;
   date: string;
 }
+interface ProductProps {
+  items: Array<Card>;
+  title: string;
+}
 
-function Gamecards(): JSX.Element {
-  const [items, setItems] = useState<Array<Card>>([]);
-
-  const getResponse = async (param: string) => {
-    try {
-      const res = await getApiCardResourse<Array<Card>>(param);
-      setItems(res);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    getResponse(API_CARDS);
-  }, []);
-
+function Gamecards({ items, title }: ProductProps): JSX.Element {
   return (
     <div className={styles.categoriesContent}>
-      <p className={styles.title}>New Games</p>
+      <p className={styles.title}>{title}</p>
       <div className={styles.blockcards}>
         {items.map((element) => (
           <RenderCards item={element} />
