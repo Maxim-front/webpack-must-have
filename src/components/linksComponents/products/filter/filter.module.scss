@@ -1,0 +1,38 @@
+    @mixin horizontal_line {
+        margin-bottom: 15px;
+    }
+    
+    .filter {
+        padding: 20px;
+        min-height: 300px;
+        background-color: black;
+        border: chocolate 2px solid;
+        width: 25%;
+        .horizontal_line {
+            @include horizontal_line;
+        }
+        .sort {
+            margin-bottom: 20px;
+            .sort_content {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 10px;
+                .sort_select {
+                    width: 80%;
+                    background-color: black;
+                }
+            }
+        }
+        .genres {
+            margin-bottom: 20px;
+            .horizontal_line {
+                @include horizontal_line;
+            }
+        }
+        .age {
+            .product_title {}
+            .horizontal_line {
+                @include horizontal_line;
+            }
+        }
+    }
