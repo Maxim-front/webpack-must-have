@@ -7,18 +7,10 @@ interface ProductsProps {
 }
 
 const Filter = ({ onchange }: ProductsProps): JSX.Element => {
-  // const debounced = (value: string, name?: string) => {
-  //   onchange(value, name);
-  // };
-
-  const debounced = useDebouncedCallback(
-    // function
-    (value: string, name?: string) => {
-      onchange(value, name);
-    },
-    // delay in ms
-    4000
-  );
+  const debounced = useDebouncedCallback((value: string, name?: string) => {
+    console.log(value, name);
+    onchange(value, name);
+  }, 500);
 
   return (
     <div className={styles.filter}>

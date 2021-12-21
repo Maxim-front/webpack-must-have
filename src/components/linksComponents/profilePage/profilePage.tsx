@@ -86,12 +86,7 @@ const ProfilePage = (): JSX.Element => {
         <div className={styles.main_profile}>
           <div className={styles.profile_image}>
             <div className={styles.image_block}>
-              <img
-                // src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/No_picture_available.png/401px-No_picture_available.png"
-                src={image}
-                alt="description"
-                className={styles.image}
-              />
+              <img src={image} alt="description" className={styles.image} />
             </div>
             <button type="button" className={styles.image_button} onClick={() => updateImage()}>
               Change profile image
