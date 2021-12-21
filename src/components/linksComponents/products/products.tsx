@@ -1,9 +1,9 @@
 import { getApiCardResourse } from "@/utils/network";
 import { lazy, Suspense, useEffect, useState } from "react";
 import { API_PRODUCT_CARDS } from "../../../constants/api";
+import Searchbar from "../home/searchBar/searchBar";
 import Filter from "./filter/filter";
 import styles from "./products.module.scss";
-import Search from "./search/search";
 
 interface ProductsProps {
   category: string;
@@ -32,43 +32,26 @@ const Products = ({ category }: ProductsProps): JSX.Element => {
     try {
       const res = await getApiCardResourse<Array<Card>>(param);
       setItems(res);
-      console.log(res);
     } catch (error) {
       console.log(error);
     }
   };
 
-  // useEffect(() => {
-  //   if (genres !== "all genres" && age !== "all ages") {
-  //     getResponse(
-  //       `${API_PRODUCT_CARDS + category}&genres=${genres}&age=${age}?_sort=${sortCriteria}&_order=${sortType}`
-  //     );
-  //   }
-  //   if (age !== "all ages" && genres === "all genres") {
-  //     console.log(sortCriteria, sortType);
-  //     getResponse(`${API_PRODUCT_CARDS + category}&age=${age}?_sort=date&_order=desc`);
-  //   }
-  //   if (genres !== "all genres" && age === "all ages") {
-  //     getResponse(`${API_PRODUCT_CARDS + category}&genres=${genres}?_sort=${sortCriteria}&_order=${sortType}`);
-  //   }
-  //   if (genres === "all genres" && age === "all ages") {
-  //     getResponse(`${API_PRODUCT_CARDS + category}?_sort=${sortCriteria}&_order=${sortType}`);
-  //   }
-  // }, [category, genres, age, sortCriteria, sortType]);
-
   useEffect(() => {
     if (genres !== "all genres" && age !== "all ages") {
-      getResponse(`${API_PRODUCT_CARDS + category}&genres=${genres}&age=${age}`);
+      getResponse(
+        `${API_PRODUCT_CARDS + category}&genres=${genres}&age=${age}&_sort=${sortCriteria}&_order=${sortType}`
+      );
     }
     if (age !== "all ages" && genres === "all genres") {
       console.log(sortCriteria, sortType);
-      getResponse(`${API_PRODUCT_CARDS + category}&age=${age}`);
+      getResponse(`${API_PRODUCT_CARDS + category}&age=${age}&_sort=date&_order=desc`);
     }
     if (genres !== "all genres" && age === "all ages") {
-      getResponse(`${API_PRODUCT_CARDS + category}&genres=${genres}`);
+      getResponse(`${API_PRODUCT_CARDS + category}&genres=${genres}&_sort=${sortCriteria}&_order=${sortType}`);
     }
     if (genres === "all genres" && age === "all ages") {
-      getResponse(`${API_PRODUCT_CARDS + category}`);
+      getResponse(`${API_PRODUCT_CARDS + category}&_sort=${sortCriteria}&_order=${sortType}`);
     }
   }, [category, genres, age, sortCriteria, sortType]);
 
@@ -88,15 +71,19 @@ const Products = ({ category }: ProductsProps): JSX.Element => {
     }
   };
 
-  const ProductCards = lazy(() => import("./productCards/product_cards"));
+  const GameCards = lazy(() => import("../home/gameCards/gameCards"));
 
   return (
     <div className={styles.products_page}>
       <Filter onchange={onChange} />
       <div className={styles.right_components}>
-        <Search />
-        <Suspense fallback={<img src="https://i.gifer.com/g0R5.gif" alt="" className={styles.loader} />}>
-          <ProductCards items={items} />
+        <Searchbar />
+        <Suspense
+          fallback={
+            <img src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" alt="" className={styles.loader} />
+          }
+        >
+          <GameCards items={items} title="Products" />
         </Suspense>
       </div>
     </div>
