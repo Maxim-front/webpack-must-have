@@ -30,7 +30,7 @@ const RenderCards: FC<MyProps> = (props): JSX.Element => {
   const addCard = () => {
     const temp = localStorage.getItem("localCards");
     const persistedState: CartArray = temp ? JSON.parse(temp) : {};
-    if (persistedState.some((e) => e.id === id)) {
+    if (persistedState.length > 0 && persistedState.some((e) => e.id === id)) {
       const newArr = persistedState.map((item) => {
         if (item.id === id) {
           return {
@@ -42,12 +42,12 @@ const RenderCards: FC<MyProps> = (props): JSX.Element => {
         return item;
       });
       localStorage.setItem("localCards", JSON.stringify(newArr));
-    } else {
+    } else if (persistedState.length > 0)
       localStorage.setItem(
         "localCards",
         JSON.stringify([...persistedState, { id, title, platform, amount: 1, price }])
       );
-    }
+    else localStorage.setItem("localCards", JSON.stringify([{ id, title, platform, amount: 1, price }]));
   };
 
   return (
