@@ -8,7 +8,6 @@ interface ProductsProps {
 
 const Filter = ({ onchange }: ProductsProps): JSX.Element => {
   const debounced = useDebouncedCallback((value: string, name?: string) => {
-    console.log(value, name);
     onchange(value, name);
   }, 500);
 

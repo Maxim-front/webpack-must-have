@@ -48,7 +48,6 @@ const Products = ({ category }: ProductsProps): JSX.Element => {
       );
     }
     if (age !== "all ages" && genres === "all genres") {
-      console.log(sortCriteria, sortType);
       getResponse(`${API_PRODUCT_CARDS + category}&age=${age}&_sort=date&_order=desc`);
     }
     if (genres !== "all genres" && age === "all ages") {
