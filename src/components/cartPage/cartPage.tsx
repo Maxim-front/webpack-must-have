@@ -18,6 +18,10 @@ const CartPage = (): JSX.Element => {
   const persistedState: CartArray = temp ? JSON.parse(temp) : {};
   const [arrayCards, setArray] = useState<CartArray>(persistedState);
 
+  const updateCards = (newArr: CartArray) => {
+    setArray(newArr);
+    localStorage.setItem("localCards", JSON.stringify(newArr));
+  };
 
 
   return (
