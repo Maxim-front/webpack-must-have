@@ -1,4 +1,5 @@
 const SET_USER = "SET_USER";
+const SET_CARD = "SET_CARD";
 
 interface UserState {
   userName?: string;
@@ -17,7 +18,7 @@ interface SetUserAction {
 
 type UserAction = SetUserAction;
 
-const defaultState: UserState = {
+const defaultUserState: UserState = {
   userName: "user",
   email: "email",
   id: 0,
@@ -28,7 +29,7 @@ const defaultState: UserState = {
     "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/No_picture_available.png/401px-No_picture_available.png",
 };
 
-export const userReducer = (state = defaultState, action: UserAction): UserState => {
+export const userReducer = (state = defaultUserState, action: UserAction): UserState => {
   const user = action.payload;
 
   switch (action.type) {
@@ -47,4 +48,46 @@ export const userReducer = (state = defaultState, action: UserAction): UserState
   }
 };
 
+interface CardState {
+  id: number;
+  title: string;
+  platform: string;
+  amount: number;
+  price: string;
+}
+
+interface SetCardAction {
+  type: typeof SET_CARD;
+  payload: CardState;
+}
+
+type CardAction = SetCardAction;
+
+const defaultCardState: CardState = {
+  id: 0,
+  title: "name",
+  platform: "pc",
+  amount: 0,
+  price: "0$",
+};
+
+export const cardReducer = (state = defaultCardState, action: CardAction): CardState => {
+  const card = action.payload;
+
+  switch (action.type) {
+    case SET_CARD:
+      return {
+        id: card.id,
+        title: card.title,
+        platform: card.platform,
+        amount: card.amount,
+        price: card.price,
+      };
+    default:
+      return state;
+  }
+};
+
 export const setUser = (user: UserState): SetUserAction => ({ type: SET_USER, payload: user });
+
+export const setCard = (card: CardState): SetCardAction => ({ type: SET_CARD, payload: card });
