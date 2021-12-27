@@ -8,7 +8,11 @@ import ProtectedRoute from "../ProtectedRoute/protectedRoute";
 const Routecomponents = (): JSX.Element => (
   <div>
     <Switch>
-      <ProtectedRoute path="/products" component={Products} />
+      {/* <ProtectedRoute path="/products" component={Products} /> */}
+      <Route path="/products/xbox" render={() => <Products category="xbox" />} />
+      <Route path="/products/playstation" render={() => <Products category="playstation" />} />
+      <Route path="/products/pc" render={() => <Products category="pc" />} />
+      <Route path="/products/" render={() => <Products category="" />} />
       <ProtectedRoute path="/about" component={About} />
       <ProtectedRoute path="/profile" component={ProfilePage} />
       <Route path="/sign-in" render={() => <Home />} />

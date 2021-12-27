@@ -5,13 +5,16 @@ interface InputProps {
   message?: string;
   inputType: string;
   value: string;
+  name?: string;
   inputPlaceHolder?: string;
-  onChange: (value: string) => void;
+  onChange: (value: string, name?: string) => void;
 }
 
-const InputText: FC<InputProps> = ({ message, inputType, value, inputPlaceHolder, onChange }) => {
+const InputText: FC<InputProps> = ({ message, name, inputType, value, inputPlaceHolder, onChange }) => {
   const onchange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(e.target.value);
+    const inputName = e.target.name.toLowerCase();
+    const inputValue = e.target.value.toLowerCase();
+    onChange(inputValue, inputName);
   };
   return (
     <>
@@ -20,6 +23,7 @@ const InputText: FC<InputProps> = ({ message, inputType, value, inputPlaceHolder
       </label>
       <input
         className={styles.inputText}
+        name={name}
         type={inputType}
         value={value}
         placeholder={inputPlaceHolder}
