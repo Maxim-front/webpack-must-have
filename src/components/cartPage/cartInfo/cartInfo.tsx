@@ -44,6 +44,18 @@ const CartInfo = ({ cards, deleteItem, updateCards }: CartArray): JSX.Element =>
     updateCards(newArr);
   };
 
+  const changePlatform = (newPlatform: string, idElement: number) => {
+    const newArr = cards.map((item) => {
+      if (item.id === idElement) {
+        return {
+          ...item,
+          platform: newPlatform,
+        };
+      }
+      return item;
+    });
+    updateCards(newArr);
+  };
 
   return (
     <>
