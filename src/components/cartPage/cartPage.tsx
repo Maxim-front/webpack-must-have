@@ -23,6 +23,12 @@ const CartPage = (): JSX.Element => {
     localStorage.setItem("localCards", JSON.stringify(newArr));
   };
 
+  const deleteItem = (value: string[]) => {
+    const filteredItems = persistedState.filter((item) => !value.includes(item.id.toString()));
+    localStorage.setItem("localCards", JSON.stringify(filteredItems));
+    setArray(filteredItems);
+  };
+
 
   return (
     <div className={styles.cart_page}>
