@@ -31,6 +31,19 @@ const CartInfo = ({ cards, deleteItem, updateCards }: CartArray): JSX.Element =>
     setSelectValues(checkBoxesValue);
   };
 
+  const changeAmount = (newAmount: string, idElement: number) => {
+    const newArr = cards.map((item) => {
+      if (item.id === idElement) {
+        return {
+          ...item,
+          amount: Number(newAmount),
+        };
+      }
+      return item;
+    });
+    updateCards(newArr);
+  };
+
 
   return (
     <>
