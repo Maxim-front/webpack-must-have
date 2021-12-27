@@ -17,6 +17,7 @@
       "price": "23.99$",
       "text": "Overwatch is a 2016 team-based multiplayer first-person shooter game developed and published by Blizzard Entertainment.",
       "stars": 3,
+      "platform": "xbox",
       "date": "1999-11-17"
     },
     {
@@ -26,6 +27,7 @@
       "price": "25.99$",
       "text": "Minecraft is a sandbox video game developed by the Swedish video game developer Mojang Studios.",
       "stars": 5,
+      "platform": "playStation",
       "date": "2019-11-17"
     },
     {
@@ -35,6 +37,7 @@
       "price": "4.99$",
       "text": "Terraria is a 2D sandbox game with gameplay that revolves around exploration, building, crafting, combat, survival, and mining, playable in both single-player and multiplayer modes.",
       "stars": 4,
+      "platform": "pc",
       "date": "2015-11-17"
     }
   ],
