@@ -29,6 +29,14 @@ const CartPage = (): JSX.Element => {
     setArray(filteredItems);
   };
 
+  const sumPrice = () => {
+    const total = persistedState.reduce(
+      (sum, current) => sum + Number(current.price.slice(0, current.price.indexOf("$"))) * current.amount,
+      0
+    );
+    return total;
+  };
+
 
   return (
     <div className={styles.cart_page}>
