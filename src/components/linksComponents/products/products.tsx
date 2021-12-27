@@ -19,6 +19,7 @@ interface Card {
   stars: number;
   date: string;
   category: string;
+  platform: string;
 }
 
 const Products = ({ category }: ProductsProps): JSX.Element => {
@@ -59,7 +60,6 @@ const Products = ({ category }: ProductsProps): JSX.Element => {
   }, [category, genres, age, sortCriteria, sortType]);
 
   const onChange = (value: string, name?: string) => {
-    console.log(value, name);
     if (name === "genres") {
       setGenres(value);
     }
