@@ -9,6 +9,7 @@ import styles from "./newImageModal.module.scss";
 import Modal from "../../../../modal/modal";
 import "react-toastify/dist/ReactToastify.css";
 import { changeUser } from "../../../../utils/network";
+import { API_USER } from "../../../../constants/api";
 
 interface RootState {
   user: {
@@ -50,7 +51,7 @@ const NewImageModal = ({ user, closeModal }: RootState): JSX.Element | null => {
           image: imageLink,
         })
       );
-      await changeUser(`http://localhost:3000/users/${id}`, {
+      await changeUser(`${API_USER}${id}`, {
         email,
         password,
         userName,
