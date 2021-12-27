@@ -21,6 +21,16 @@ interface CartArray {
 const CartInfo = ({ cards, deleteItem, updateCards }: CartArray): JSX.Element => {
   const [selectValues, setSelectValues] = useState<SelectCards>([]);
 
+  const selectCards = (checkboxes) => {
+    const checkBoxesValue: string[] = [];
+    for (let index = 0; index < checkboxes.length; index++) {
+      if (checkboxes[index].checked) {
+        checkBoxesValue.push(checkboxes[index].value);
+      }
+    }
+    setSelectValues(checkBoxesValue);
+  };
+
 
   return (
     <>
