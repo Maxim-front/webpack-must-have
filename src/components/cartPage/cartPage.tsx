@@ -37,6 +37,9 @@ const CartPage = (): JSX.Element => {
     return total;
   };
 
+  const submitSelectedProducts = () => {
+    console.log(persistedState);
+  };
 
   return (
     <div className={styles.cart_page}>
