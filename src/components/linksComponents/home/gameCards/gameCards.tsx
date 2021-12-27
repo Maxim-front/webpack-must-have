@@ -3,6 +3,7 @@ import RenderCards from "./renderCards";
 
 interface Card {
   id: number;
+  platform: string;
   image: string;
   title: string;
   price: string;
