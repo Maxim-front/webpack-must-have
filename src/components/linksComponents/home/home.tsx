@@ -9,6 +9,7 @@ import Gamecards from "./gameCards/gameCards";
 interface Card {
   id: number;
   image: string;
+  platform: string;
   title: string;
   price: string;
   text: string;
