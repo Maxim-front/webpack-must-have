@@ -7,14 +7,17 @@ interface InputProps {
   value: string;
   name?: string;
   inputPlaceHolder?: string;
-  onChange: (value: string, name?: string) => void;
+  onChange: (value: string, name?: string) => void | (<DebouncedState>(inputValue: string, inputName?: string) => void);
 }
 
 const InputText: FC<InputProps> = ({ message, name, inputType, value, inputPlaceHolder, onChange }) => {
   const onchange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputName = e.target.name.toLowerCase();
     const inputValue = e.target.value.toLowerCase();
-    onChange(inputValue, inputName);
+    if (inputType === "checkbox") {
+      const checkboxes = document.getElementsByName("gameCards");
+      onChange(checkboxes);
+    } else onChange(inputValue, inputName);
   };
   return (
     <>

@@ -104,7 +104,7 @@ const Navbar = (): JSX.Element => {
       ) : (
         <>
           <li className={styles.item}>
-            <NavLink to="/sign-in" activeClassName={styles.active}>
+            <NavLink to="/home/order_list" activeClassName={styles.active}>
               <FaShoppingCart />
             </NavLink>
           </li>

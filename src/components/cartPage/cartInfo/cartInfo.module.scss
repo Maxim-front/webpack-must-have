@@ -1,0 +1,36 @@
+.buttonRemove {
+  background-color: rgb(127, 62, 143);
+  border-radius: 7px;
+  border-color: transparent;
+  padding: 4px 7px;
+  margin-left: auto;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.cart {
+  display: flex;
+  padding: 5px 0;
+
+  .sort_select {
+    margin-right: 6.5%;
+    background-color: black;
+    width: 10%;
+  }
+
+  .inputText {
+    margin-right: 6.5%;
+    padding: 4px;
+    background-color: black;
+    border: solid 1px white;
+    width: 10%;
+  }
+}
+
+.cart p {
+  width: 16.5%;
+}
+
+.horizontal_line {
+  margin-bottom: 10px;
+}

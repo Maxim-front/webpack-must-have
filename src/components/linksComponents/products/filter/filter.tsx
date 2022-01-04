@@ -8,9 +8,13 @@ interface ProductsProps {
 
 const Filter = ({ onchange }: ProductsProps): JSX.Element => {
   const debounced = useDebouncedCallback((value: string, name?: string) => {
-    console.log(value, name);
     onchange(value, name);
   }, 500);
+
+  const values = {
+    genres: ["All genres", "Shooter", "Arcade", "Survive"],
+    ages: ["All ages", "3", "6", "12", "18"],
+  };
 
   return (
     <div className={styles.filter}>
@@ -52,48 +56,24 @@ const Filter = ({ onchange }: ProductsProps): JSX.Element => {
         <h4 className={styles.product_title}>Genres</h4>
         <hr className={styles.horizontal_line} />
         <div className={styles.genres_content}>
-          <div>
-            <InputText name="genres" inputType="radio" value="All genres" onChange={debounced} />
-            <span>All genres</span>
-          </div>
-          <div>
-            <InputText name="genres" inputType="radio" value="Shooter" onChange={debounced} />
-            <span>Shooter</span>
-          </div>
-          <div>
-            <InputText name="genres" inputType="radio" value="Arcade" onChange={debounced} />
-            <span>Arcade</span>
-          </div>
-          <div>
-            <InputText name="genres" inputType="radio" value="Survive" onChange={debounced} />
-            <span>Survive</span>
-          </div>
+          {values.genres.map((value) => (
+            <div>
+              <InputText name="genres" inputType="radio" value={value} onChange={debounced} />
+              <span>{value}</span>
+            </div>
+          ))}
         </div>
       </div>
       <div className={styles.age}>
         <h4 className={styles.product_title}>Age</h4>
         <hr className={styles.horizontal_line} />
         <div className={styles.age_content}>
-          <div>
-            <InputText name="age" inputType="radio" value="All ages" onChange={debounced} />
-            <span>All ages</span>
-          </div>
-          <div>
-            <InputText name="age" inputType="radio" value="3" onChange={debounced} />
-            <span>3+</span>
-          </div>
-          <div>
-            <InputText name="age" inputType="radio" value="6" onChange={debounced} />
-            <span>6+</span>
-          </div>
-          <div>
-            <InputText name="age" inputType="radio" value="12" onChange={debounced} />
-            <span>12+</span>
-          </div>
-          <div>
-            <InputText name="age" inputType="radio" value="18" onChange={debounced} />
-            <span>18+</span>
-          </div>
+          {values.ages.map((value) => (
+            <div>
+              <InputText name="age" inputType="radio" value={value} onChange={debounced} />
+              <span>{value}</span>
+            </div>
+          ))}
         </div>
       </div>
     </div>

@@ -19,6 +19,7 @@ interface Card {
   stars: number;
   date: string;
   category: string;
+  platform: string;
 }
 
 const Products = ({ category }: ProductsProps): JSX.Element => {
@@ -47,7 +48,6 @@ const Products = ({ category }: ProductsProps): JSX.Element => {
       );
     }
     if (age !== "all ages" && genres === "all genres") {
-      console.log(sortCriteria, sortType);
       getResponse(`${API_PRODUCT_CARDS + category}&age=${age}&_sort=date&_order=desc`);
     }
     if (genres !== "all genres" && age === "all ages") {
@@ -59,7 +59,6 @@ const Products = ({ category }: ProductsProps): JSX.Element => {
   }, [category, genres, age, sortCriteria, sortType]);
 
   const onChange = (value: string, name?: string) => {
-    console.log(value, name);
     if (name === "genres") {
       setGenres(value);
     }

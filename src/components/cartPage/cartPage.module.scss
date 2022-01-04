@@ -1,0 +1,36 @@
+.cart_page {
+  background-color: black;
+  border: brown 2px solid;
+  padding: 10px 30px;
+  width: 80%;
+  margin: 0 auto;
+
+  .cart_title {
+    margin-bottom: 5px;
+  }
+
+  .table_titles {
+    width: 100%;
+    display: flex;
+  }
+
+  .table_titles p {
+    width: 16.5%;
+  }
+
+  .horizontal_line {
+    margin-bottom: 10px;
+  }
+
+  .cart_page_footer {
+    display: flex;
+    justify-content: space-evenly;
+
+    .buttonBuy {
+      background-color: rgb(127, 62, 143);
+      border-radius: 7px;
+      border-color: transparent;
+      padding: 4px 7px;
+    }
+  }
+}

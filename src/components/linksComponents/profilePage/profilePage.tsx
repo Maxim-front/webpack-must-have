@@ -9,6 +9,7 @@ import styles from "./profilePage.module.scss";
 import "react-toastify/dist/ReactToastify.css";
 import NewPasswordModal from "./newPassword/newPasswordModal";
 import NewImageModal from "./newImage/newImageModal";
+import { API_USER } from "../../../constants/api";
 
 interface RootState {
   user: {
@@ -64,7 +65,7 @@ const ProfilePage = (): JSX.Element => {
       user.description = newDescription;
       user.userName = newUserName;
       dispatch(setUser(user));
-      await changeUser(`http://localhost:3000/users/${id}`, {
+      await changeUser(`${API_USER}${id}`, {
         email,
         userName: newUserName,
         description: newDescription,
