@@ -22,6 +22,9 @@ const Searchbar = (): JSX.Element => {
 
   const [isLoading, setIsLoading] = useState(false);
 
+  const user = useSelector((state: RootState) => state.user);
+
+  const { email } = user;
   const getResponse = async (param: string) => {
     setIsLoading(true);
     try {
@@ -59,6 +62,12 @@ const Searchbar = (): JSX.Element => {
           placeholder="Search name"
         />
       </div>
+      {email === "admin@admin.com" && (
+        <button type="button" className={styles.buttonSubmit} onClick={() => getIdCard()}>
+          Add to Card
+        </button>
+      )}
+      {isOpenModal && <AddCardModal toggleModal={toggleModal} cardId={cardId} isOpen={isOpenModal} />}
       {items.length >= 1 && searchInput && <ListResults elements={items} />}
     </div>
   );
