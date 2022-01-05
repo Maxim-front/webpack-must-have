@@ -1,5 +1,7 @@
+import { RootState } from "@/components/store/reducers/store";
 import { getApiCardResourse } from "@/utils/network";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { API_PRODUCT_CARDS } from "../../../constants/api";
 import Gamecards from "../home/gameCards/gameCards";
 import Searchbar from "../home/searchBar/searchBar";
@@ -7,28 +9,34 @@ import Filter from "./filter/filter";
 import styles from "./products.module.scss";
 
 interface ProductsProps {
-  category: string;
+  platform: string;
 }
 
 interface Card {
   id: number;
   image: string;
   title: string;
-  price: string;
+  price: number;
   text: string;
-  stars: number;
+  rating: number;
   date: string;
-  category: string;
   platform: string;
 }
 
-const Products = ({ category }: ProductsProps): JSX.Element => {
+const Products = ({ platform }: ProductsProps): JSX.Element => {
   const [items, setItems] = useState<Array<Card>>([]);
-  const [genres, setGenres] = useState("all genres");
-  const [age, setAge] = useState("all ages");
-  const [sortCriteria, setSortCriteria] = useState("stars");
-  const [sortType, setSortType] = useState("asc");
   const [isLoading, setIsLoading] = useState(false);
+  const card = useSelector((state: RootState) => state.card);
+
+  const initSortAndFilterProps = {
+    genres: "all genres",
+    age: "all ages",
+    sortByCriteria: "rating",
+    sortByType: "asc",
+  };
+
+  const [sortAndFilterProps, setSortAndFilterProps] = useState({ ...initSortAndFilterProps });
+  const { genres, age, sortByCriteria, sortByType } = sortAndFilterProps;
 
   const getResponse = async (param: string) => {
     setIsLoading(true);
@@ -44,38 +52,27 @@ const Products = ({ category }: ProductsProps): JSX.Element => {
   useEffect(() => {
     if (genres !== "all genres" && age !== "all ages") {
       getResponse(
-        `${API_PRODUCT_CARDS + category}&genres=${genres}&age=${age}&_sort=${sortCriteria}&_order=${sortType}`
+        `${API_PRODUCT_CARDS + platform}&genres=${genres}&age=${age}&_sort=${sortByCriteria}&_order=${sortByType}`
       );
     }
     if (age !== "all ages" && genres === "all genres") {
-      getResponse(`${API_PRODUCT_CARDS + category}&age=${age}&_sort=date&_order=desc`);
+      getResponse(`${API_PRODUCT_CARDS + platform}&age=${age}&_sort=date&_order=desc`);
     }
     if (genres !== "all genres" && age === "all ages") {
-      getResponse(`${API_PRODUCT_CARDS + category}&genres=${genres}&_sort=${sortCriteria}&_order=${sortType}`);
+      getResponse(`${API_PRODUCT_CARDS + platform}&genres=${genres}&_sort=${sortByCriteria}&_order=${sortByType}`);
     }
     if (genres === "all genres" && age === "all ages") {
-      getResponse(`${API_PRODUCT_CARDS + category}&_sort=${sortCriteria}&_order=${sortType}`);
+      getResponse(`${API_PRODUCT_CARDS + platform}&_sort=${sortByCriteria}&_order=${sortByType}`);
     }
-  }, [category, genres, age, sortCriteria, sortType]);
+  }, [platform, sortAndFilterProps, card]);
 
   const onChange = (value: string, name?: string) => {
-    if (name === "genres") {
-      setGenres(value);
-    }
-    if (name === "age") {
-      setAge(value);
-    }
-    if (name === "sortByCriteria") {
-      setSortCriteria(value);
-    }
-    if (name === "sortByType") {
-      setSortType(value);
-    }
+    if (name) setSortAndFilterProps({ ...initSortAndFilterProps, [name]: value });
   };
 
   return (
     <div className={styles.products_page}>
-      <Filter onchange={onChange} />
+      <Filter onchange={onChange} platform={platform} />
       <div className={styles.right_components}>
         <Searchbar />
         {isLoading ? (
