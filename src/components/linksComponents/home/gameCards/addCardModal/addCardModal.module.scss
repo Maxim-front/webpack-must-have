@@ -1,0 +1,97 @@
+.submitForm {
+  width: 100%;
+
+  .header_modal {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .main_modal {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 7px 3px;
+
+    .left_content {
+      padding: 5px;
+      width: 40%;
+
+      .image_title {
+        margin-bottom: 10px;
+      }
+
+      .card_image {
+        border: none;
+      }
+
+      .card_image img {
+        cursor: pointer;
+        width: 100%;
+        border-radius: 7px;
+      }
+    }
+
+    .right_content {
+      padding: 5px;
+      width: 60%;
+
+      .input_block {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px;
+      }
+
+      .description_content {
+        min-height: 100px;
+        margin-right: 10px;
+        padding: 4px;
+        background-color: black;
+        border: solid 1px white;
+        width: 61%;
+        margin-bottom: 10px;
+      }
+
+      .age_content {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+
+        .age_select {
+          width: 20%;
+          background-color: black;
+        }
+      }
+
+      .platform {
+        .platform_title {
+          text-align: left;
+        }
+
+        .platform_content {
+          padding: 5px;
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+    }
+  }
+
+  .horizontal_line {
+    margin-bottom: 15px;
+  }
+
+  .footer_modal {
+    display: flex;
+    justify-content: space-evenly;
+
+    .footer_button {
+      cursor: pointer;
+      background-color: rgb(127, 62, 143);
+      border-radius: 7px;
+      border-color: transparent;
+      padding: 4px 7px;
+      text-align: center;
+    }
+  }
+}
