@@ -8,7 +8,7 @@ interface Card {
   title: string;
   platform: string;
   amount: number;
-  price: string;
+  price: number;
 }
 
 type CartArray = Card[];
@@ -30,11 +30,11 @@ const CartPage = (): JSX.Element => {
   };
 
   const sumPrice = () => {
-    const total = persistedState.reduce(
-      (sum, current) => sum + Number(current.price.slice(0, current.price.indexOf("$"))) * current.amount,
-      0
-    );
-    return total;
+    if (persistedState.length > 0) {
+      const total = persistedState.reduce((sum, current) => sum + current.price, 0);
+      return total;
+    }
+    return 0;
   };
 
   const submitSelectedProducts = () => {
@@ -55,7 +55,7 @@ const CartPage = (): JSX.Element => {
       <hr className={styles.horizontal_line} />
       <CartInfo cards={arrayCards} deleteItem={deleteItem} updateCards={updateCards} />
       <div className={styles.cart_page_footer}>
-        <p>{`Games Cost:${sumPrice()}`}</p>
+        <p>{`Games Cost:${sumPrice()}$`}</p>
         <p>Your balance: 32.98$</p>
         <button type="submit" className={styles.buttonBuy} onClick={() => submitSelectedProducts()}>
           Buy
