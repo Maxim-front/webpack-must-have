@@ -1,18 +1,21 @@
 import { useCallback, useState } from "react";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import debounce from "lodash/debounce";
+import { useSelector } from "react-redux";
+import { RootState } from "@/components/store/reducers/store";
 import { API_SEARCH } from "../../../../constants/api";
 import { getApiCardResourse } from "../../../../utils/network";
 import styles from "./searchBar.module.scss";
 import ListResults from "./listResults/listResults";
+import AddCardModal from "../gameCards/addCardModal/addCardModal";
 
 interface Card {
   id: number;
   image: string;
   title: string;
-  price: string;
+  price: number;
   text: string;
-  stars: number;
+  rating: number;
   date: string;
 }
 
@@ -22,9 +25,22 @@ const Searchbar = (): JSX.Element => {
 
   const [isLoading, setIsLoading] = useState(false);
 
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [cardId, setCardId] = useState(0);
+
   const user = useSelector((state: RootState) => state.user);
 
   const { email } = user;
+
+  const getIdCard = (idValue = -1) => {
+    setCardId(idValue);
+    setIsOpenModal(!isOpenModal);
+  };
+
+  const toggleModal = () => {
+    setIsOpenModal(!isOpenModal);
+  };
+
   const getResponse = async (param: string) => {
     setIsLoading(true);
     try {
