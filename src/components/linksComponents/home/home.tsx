@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "@/components/store/reducers/store";
 import { getApiCardResourse } from "../../../utils/network";
@@ -43,4 +43,4 @@ const Home = (): JSX.Element => {
   );
 };
 
-export default Home;
+export default React.memo(Home);

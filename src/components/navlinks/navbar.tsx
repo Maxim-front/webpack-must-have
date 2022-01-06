@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { FaShoppingCart, FaSignOutAlt } from "react-icons/fa";
 
@@ -91,7 +91,7 @@ const Navbar = (): JSX.Element => {
             <NavLink to="/sign-up" activeClassName={styles.active}>
               Sign Up
             </NavLink>
-            <SignUpModal isOpen={openSignUp} onClose={() => setOpenSignUp(false)} />
+            {openSignUp && <SignUpModal isOpen={openSignUp} onClose={() => setOpenSignUp(false)} />}{" "}
           </button>
         </li>
       ) : (
@@ -112,4 +112,4 @@ const Navbar = (): JSX.Element => {
   );
 };
 
-export default Navbar;
+export default React.memo(Navbar);
