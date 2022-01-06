@@ -1,4 +1,4 @@
-import InputText from "@/elements/inputText/inputText";
+import InputCheckBox from "@/elements/inputs/inputCheckbox/inputCheckbox";
 import { useState } from "react";
 import styles from "./cartInfo.module.scss";
 
@@ -7,7 +7,7 @@ interface Element {
   title: string;
   platform: string;
   amount: number;
-  price: string;
+  price: number;
 }
 
 type SelectCards = string[];
@@ -21,35 +21,23 @@ interface CartArray {
 const CartInfo = ({ cards, deleteItem, updateCards }: CartArray): JSX.Element => {
   const [selectValues, setSelectValues] = useState<SelectCards>([]);
 
-  const selectCards = (checkboxes) => {
-    const checkBoxesValue: string[] = [];
-    for (let index = 0; index < checkboxes.length; index++) {
-      if (checkboxes[index].checked) {
-        checkBoxesValue.push(checkboxes[index].value);
-      }
+  const selectCards = (element: EventTarget & HTMLInputElement) => {
+    const newArr = selectValues.slice();
+    if (newArr.includes(element.value)) {
+      const index = newArr.indexOf(element.value);
+      newArr.splice(index, 1);
+    } else {
+      newArr.push(element.value);
     }
-    setSelectValues(checkBoxesValue);
+    setSelectValues(newArr);
   };
 
-  const changeAmount = (newAmount: string, idElement: number) => {
+  const changeValues = (value: string | number, name: string, idElement: number) => {
     const newArr = cards.map((item) => {
       if (item.id === idElement) {
         return {
           ...item,
-          amount: Number(newAmount),
-        };
-      }
-      return item;
-    });
-    updateCards(newArr);
-  };
-
-  const changePlatform = (newPlatform: string, idElement: number) => {
-    const newArr = cards.map((item) => {
-      if (item.id === idElement) {
-        return {
-          ...item,
-          platform: newPlatform,
+          [name]: value,
         };
       }
       return item;
@@ -70,7 +58,7 @@ const CartInfo = ({ cards, deleteItem, updateCards }: CartArray): JSX.Element =>
                     name="platform"
                     className={styles.sort_select}
                     defaultValue={element.platform}
-                    onChange={(e) => changePlatform(e.target.value, element.id)}
+                    onChange={(e) => changeValues(e.target.value, e.target.name, element.id)}
                   >
                     <option value="pc" selected>
                       pc
@@ -82,13 +70,13 @@ const CartInfo = ({ cards, deleteItem, updateCards }: CartArray): JSX.Element =>
                   <textarea
                     className={styles.inputText}
                     defaultValue={element.amount}
-                    onChange={(e) => changeAmount(e.target.value, element.id)}
+                    onChange={(e) => changeValues(Number(e.target.value), e.target.name, element.id)}
                     name="amount"
                     cols={15}
                     rows={1}
                   />
-                  <p>{element.price}</p>
-                  <InputText
+                  <p>{element.price}$</p>
+                  <InputCheckBox
                     name="gameCards"
                     inputType="checkbox"
                     value={element.id.toString()}

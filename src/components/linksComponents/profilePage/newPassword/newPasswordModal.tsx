@@ -1,4 +1,4 @@
-import InputText from "@/elements/inputText/inputText";
+import Input from "@/elements/inputs/inputText/input";
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { FaTimes } from "react-icons/fa";
@@ -76,7 +76,7 @@ const NewPasswordModal = ({ user, closeModal }: RootState): JSX.Element | null =
             </button>
           </div>
           <div className={styles.inputBlock}>
-            <InputText
+            <Input
               message="new password"
               inputType="text"
               value={firstPassword}
@@ -86,7 +86,7 @@ const NewPasswordModal = ({ user, closeModal }: RootState): JSX.Element | null =
             />
           </div>
           <div className={styles.inputBlock}>
-            <InputText
+            <Input
               message="update password"
               inputType="text"
               value={secondPassword}

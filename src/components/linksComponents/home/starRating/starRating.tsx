@@ -7,7 +7,7 @@ interface Props {
 }
 
 const StarRating = (props: Props): JSX.Element => (
-  <div className={styles.stars}>
+  <div className={styles.rating}>
     {Array.from(Array(props.rating).keys()).map(() => (
       <span key={uuidv4()}>
         <FaStar />

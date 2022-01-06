@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "@/components/store/reducers/store";
 import { getApiCardResourse } from "../../../utils/network";
 import { API_CARDS } from "../../../constants/api";
 import Categories from "./categories/categories";
@@ -9,16 +11,16 @@ import Gamecards from "./gameCards/gameCards";
 interface Card {
   id: number;
   image: string;
-  platform: string;
   title: string;
-  price: string;
+  price: number;
   text: string;
-  stars: number;
+  rating: number;
   date: string;
-  category: string;
+  platform: string;
 }
 const Home = (): JSX.Element => {
   const [items, setItems] = useState<Array<Card>>([]);
+  const card = useSelector((state: RootState) => state.card);
 
   const getResponse = async (param: string) => {
     try {
@@ -31,7 +33,7 @@ const Home = (): JSX.Element => {
 
   useEffect(() => {
     getResponse(API_CARDS);
-  }, []);
+  }, [card]);
   return (
     <div className={styles.homecontent}>
       <Searchbar />

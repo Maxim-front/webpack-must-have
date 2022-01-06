@@ -1,5 +1,5 @@
 import { FaTimes } from "react-icons/fa";
-import InputText from "@/elements/inputText/inputText";
+import Input from "@/elements/inputs/inputText/input";
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { useHistory } from "react-router-dom";
@@ -56,6 +56,7 @@ const SignInModal = ({ isOpen, onClose, url }: MyState): JSX.Element | null => {
           userName: res.user.userName,
           email: login,
           id: res.user.id,
+          isLogged: true,
           description: res.user.description,
           password: userPassword,
           image: res.user.image,
@@ -79,7 +80,7 @@ const SignInModal = ({ isOpen, onClose, url }: MyState): JSX.Element | null => {
             </button>
           </div>
           <div className={styles.inputBlock}>
-            <InputText
+            <Input
               message="Login"
               inputType="text"
               value={login}
@@ -88,7 +89,7 @@ const SignInModal = ({ isOpen, onClose, url }: MyState): JSX.Element | null => {
             />
           </div>
           <div className={styles.inputBlock}>
-            <InputText
+            <Input
               message="Password"
               inputType="text"
               value={userPassword}

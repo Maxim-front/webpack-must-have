@@ -20,7 +20,7 @@ type UserAction = SetUserAction;
 
 const defaultUserState: UserState = {
   userName: "user",
-  email: "email",
+  email: "",
   id: 0,
   description: "description",
   isLogged: false,
@@ -37,7 +37,7 @@ export const userReducer = (state = defaultUserState, action: UserAction): UserS
       return {
         userName: user.userName,
         email: user.email,
-        isLogged: true,
+        isLogged: user.isLogged,
         id: user.id,
         description: user.description,
         password: user.password,
@@ -49,11 +49,15 @@ export const userReducer = (state = defaultUserState, action: UserAction): UserS
 };
 
 interface CardState {
-  id: number;
+  id?: number;
+  platform: string[];
   title: string;
-  platform: string;
-  amount: number;
-  price: string;
+  image: string;
+  price: number;
+  genres: string;
+  text: string;
+  rating: number;
+  age: string;
 }
 
 interface SetCardAction {
@@ -65,10 +69,14 @@ type CardAction = SetCardAction;
 
 const defaultCardState: CardState = {
   id: 0,
-  title: "name",
-  platform: "pc",
-  amount: 0,
-  price: "0$",
+  platform: [],
+  title: "",
+  image: "",
+  price: 0,
+  genres: "",
+  text: "",
+  rating: 0,
+  age: "",
 };
 
 export const cardReducer = (state = defaultCardState, action: CardAction): CardState => {
@@ -80,8 +88,12 @@ export const cardReducer = (state = defaultCardState, action: CardAction): CardS
         id: card.id,
         title: card.title,
         platform: card.platform,
-        amount: card.amount,
+        image: card.image,
         price: card.price,
+        genres: card.genres,
+        text: card.text,
+        rating: card.rating,
+        age: card.age,
       };
     default:
       return state;

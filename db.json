@@ -1,94 +1,106 @@
 {
-  "users": [
-    {
-      "email": "qwe@gmail.com",
-      "userName": "maxim",
-      "description": "react ",
-      "password": "$2a$10$VUnvMwToWBMH11.qzD.ZMO8Vvv50P41FivM8LVHikJfjDUxYvRoMy",
-      "image": "https://www.iucn.org/sites/dev/files/content/images/2020/shutterstock_1458128810.jpg",
-      "id": 1
-    }
-  ],
-  "cards": [
-    {
-      "id": 1,
-      "image": "https://upload.wikimedia.org/wikipedia/ru/3/33/Overwatch_Origins_Edition_PC_cover.jpg",
-      "title": "Overwatch",
-      "price": "23.99$",
-      "text": "Overwatch is a 2016 team-based multiplayer first-person shooter game developed and published by Blizzard Entertainment.",
-      "stars": 3,
-      "platform": "xbox",
-      "date": "1999-11-17"
-    },
-    {
-      "id": 2,
-      "image": "https://image.api.playstation.com/vulcan/img/cfn/11307x4B5WLoVoIUtdewG4uJ_YuDRTwBxQy0qP8ylgazLLc01PBxbsFG1pGOWmqhZsxnNkrU3GXbdXIowBAstzlrhtQ4LCI4.png",
-      "title": "Minecraft",
-      "price": "25.99$",
-      "text": "Minecraft is a sandbox video game developed by the Swedish video game developer Mojang Studios.",
-      "stars": 5,
-      "platform": "playStation",
-      "date": "2019-11-17"
-    },
-    {
-      "id": 3,
-      "image": "https://s3.gaming-cdn.com/images/products/932/orig/game-steam-terraria-cover.jpg",
-      "title": "Terraria",
-      "price": "4.99$",
-      "text": "Terraria is a 2D sandbox game with gameplay that revolves around exploration, building, crafting, combat, survival, and mining, playable in both single-player and multiplayer modes.",
-      "stars": 4,
-      "platform": "pc",
-      "date": "2015-11-17"
-    }
-  ],
-  "productCards": [
-    {
-      "id": 1,
-      "age": "18",
-      "image": "https://upload.wikimedia.org/wikipedia/ru/3/33/Overwatch_Origins_Edition_PC_cover.jpg",
-      "title": "Overwatch",
-      "price": "8.99$",
-      "text": "Overwatch is a 2016 team-based multiplayer first-person shooter game developed and published by Blizzard Entertainment.",
-      "stars": 3,
-      "genres": "shooter",
-      "category": "xbox",
-      "date": "1999-11-17"
-    },
-    {
-      "id": 2,
-      "age": "18",
-      "image": "https://image.api.playstation.com/vulcan/img/cfn/11307x4B5WLoVoIUtdewG4uJ_YuDRTwBxQy0qP8ylgazLLc01PBxbsFG1pGOWmqhZsxnNkrU3GXbdXIowBAstzlrhtQ4LCI4.png",
-      "title": "Minecraft",
-      "price": "3.99$",
-      "text": "Minecraft is a sandbox video game developed by the Swedish video game developer Mojang Studios.",
-      "stars": 5,
-      "genres": "arcade",
-      "category": "xbox",
-      "date": "2019-11-17"
-    },
-    {
-      "id": 3,
-      "age": "18",
-      "image": "https://s3.gaming-cdn.com/images/products/932/orig/game-steam-terraria-cover.jpg",
-      "title": "Terraria",
-      "price": "7.99$",
-      "genres": "survive",
-      "text": "Terraria is a 2D sandbox game with gameplay that revolves around exploration, building, crafting, combat, survival, and mining, playable in both single-player and multiplayer modes.",
-      "stars": 4,
-      "category": "xbox",
-      "date": "2015-11-17"
-    },
-    {
-      "id": 4,
-      "age": "18",
-      "image": "https://s3.gaming-cdn.com/images/products/932/orig/game-steam-terraria-cover.jpg",
-      "title": "Terraria",
-      "price": "6.99$",
-      "genres": "survive",
-      "text": "Terraria is a 2D sandbox game with gameplay that revolves around exploration, building, crafting, combat, survival, and mining, playable in both single-player and multiplayer modes.",
-      "stars": 4,
-      "category": "xbox",
-      "date": "2015-11-17"
-    }
-  ]
+    "users": [{
+            "email": "qwe@gmail.com",
+            "userName": "max",
+            "description": "redux",
+            "password": "$2a$10$QTf./98KU0Y/DaphhcDDkeRIRc4RFRUJEjEQp/sC9l2OxciCgEi2a",
+            "image": "https://media.springernature.com/full/springer-cms/rest/v1/img/18893370/v1/height/320",
+            "id": 1
+        },
+        {
+            "email": "admin@admin.com",
+            "userName": "admin",
+            "description": "admin@admin.com",
+            "password": "$2a$10$QTf./98KU0Y/DaphhcDDkeRIRc4RFRUJEjEQp/sC9l2OxciCgEi2a",
+            "image": "https://media.springernature.com/full/springer-cms/rest/v1/img/18893370/v1/height/320",
+            "id": 2
+        }
+    ],
+    "cards": [{
+            "id": 1,
+            "image": "https://www.iphones.ru/wp-content/uploads/2021/09/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA-%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0-2021-09-07-%D0%B2-19.48.05.jpg",
+            "title": "Overwatch",
+            "price": 23.99,
+            "text": "Overwatch is a 2016 team-based multiplayer first-person shooter game developed and published by Blizzard Entertainment.",
+            "rating": 3,
+            "age": "12",
+            "genres": "shooter",
+            "platform": [
+                "xbox",
+                "pc"
+            ],
+            "date": "1999-11-17"
+        },
+        {
+            "id": 2,
+            "image": "https://www.iphones.ru/wp-content/uploads/2021/09/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA-%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0-2021-09-07-%D0%B2-19.48.05.jpg",
+            "title": "Terraria",
+            "price": 4.99,
+            "age": "18",
+            "text": "Terraria is a 3D sandbox game with gameplay that revolves around exploration, building, crafting, combat, survival, and mining, playable in both single-player and multiplayer modes.",
+            "rating": 4,
+            "genres": "shooter",
+            "platform": ["pc"],
+            "date": "2015-11-17"
+        },
+        {
+            "id": 3,
+            "age": "18",
+            "image": "https://upload.wikimedia.org/wikipedia/ru/3/33/Overwatch_Origins_Edition_PC_cover.jpg",
+            "title": "Overwatch",
+            "price": 8.99,
+            "text": "Overwatch is a 2016 team-based multiplayer first-person shooter game developed and published by Blizzard Entertainment.",
+            "rating": 3,
+            "genres": "shooter",
+            "platform": [
+                "xbox",
+                "pc"
+            ],
+            "date": "1999-11-17"
+        },
+        {
+            "id": 4,
+            "age": "18",
+            "image": "https://image.api.playstation.com/vulcan/img/cfn/11307x4B5WLoVoIUtdewG4uJ_YuDRTwBxQy0qP8ylgazLLc01PBxbsFG1pGOWmqhZsxnNkrU3GXbdXIowBAstzlrhtQ4LCI4.png",
+            "title": "Minecraft",
+            "price": 3.99,
+            "text": "Minecraft is a sandbox video game developed by the Swedish video game developer Mojang Studios.",
+            "rating": 5,
+            "genres": "arcade",
+            "platform": [
+                "xbox",
+                "pc"
+            ],
+            "date": "2019-11-17"
+        },
+        {
+            "id": 5,
+            "age": "18",
+            "image": "https://s3.gaming-cdn.com/images/products/932/orig/game-steam-terraria-cover.jpg",
+            "title": "Terraria",
+            "price": 7.99,
+            "genres": "survive",
+            "text": "Terraria is a 2D sandbox game with gameplay that revolves around exploration, building, crafting, combat, survival, and mining, playable in both single-player and multiplayer modes.",
+            "rating": 3,
+            "platform": [
+                "xbox",
+                "pc"
+            ],
+            "date": "2015-11-17"
+        },
+        {
+            "id": 6,
+            "age": "18",
+            "image": "https://s3.gaming-cdn.com/images/products/932/orig/game-steam-terraria-cover.jpg",
+            "title": "Terraria",
+            "price": 6.99,
+            "genres": "survive",
+            "text": "Terraria is a 2D sandbox game with gameplay that revolves around exploration, building, crafting, combat, survival, and mining, playable in both single-player and multiplayer modes.",
+            "rating": 4,
+            "platform": [
+                "xbox", "playstation"
+            ],
+            "date": "2016-11-17"
+        }
+    ]
 }

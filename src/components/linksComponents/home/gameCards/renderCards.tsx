@@ -1,4 +1,6 @@
+import { RootState } from "@/components/store/reducers/store";
 import { FC } from "react";
+import { useSelector } from "react-redux";
 import StarRating from "../starRating/starRating";
 import styles from "./renderCards.module.scss";
 
@@ -7,9 +9,9 @@ interface Cards {
   platform: string;
   title: string;
   image: string;
-  price: string;
+  price: number;
   text: string;
-  stars: number;
+  rating: number;
 }
 
 interface Card {
@@ -17,15 +19,20 @@ interface Card {
   title: string;
   platform: string;
   amount: number;
-  price: string;
+  price: number;
 }
 type CartArray = Card[];
 interface MyProps {
-  item: Cards;
+  card: Cards;
+  getIdCard: (idCard?: number) => void;
 }
 
-const RenderCards: FC<MyProps> = (props): JSX.Element => {
-  const { id, image, title, price, text, stars, platform } = props.item;
+const RenderCards: FC<MyProps> = ({ card, getIdCard }: MyProps): JSX.Element => {
+  const { id, image, title, price, text, rating, platform } = card;
+
+  const user = useSelector((state: RootState) => state.user);
+
+  const { email } = user;
 
   const addCard = () => {
     const temp = localStorage.getItem("localCards");
@@ -36,7 +43,7 @@ const RenderCards: FC<MyProps> = (props): JSX.Element => {
           return {
             ...item,
             amount: item.amount + 1,
-            price: `${Number(item.price.slice(0, item.price.indexOf("$"))) * item.amount}$`,
+            price: item.price * item.amount,
           };
         }
         return item;
@@ -51,21 +58,33 @@ const RenderCards: FC<MyProps> = (props): JSX.Element => {
   };
 
   return (
-    <button type="button" className={styles.card} onClick={addCard}>
+    <div className={styles.card}>
       <div className={styles.front}>
         <div className={styles.icon}>
           <img src={image} alt="description" className={styles.images} />
         </div>
         <div className={styles.iconContent}>
           <p>{title}</p>
-          <p>{price}</p>
+          <p>{price}$</p>
         </div>
-        <StarRating rating={stars} />
+        <StarRating rating={rating} />
       </div>
       <div className={styles.back}>
-        <span className={styles.backText}>{text}</span>
+        <p className={styles.backText}>{text}</p>
+        <div className={styles.backButtons}>
+          {email && email !== "admin@admin.com" && (
+            <button type="button" className={styles.buttonSubmit} onClick={addCard}>
+              Add to Card
+            </button>
+          )}
+          {email === "admin@admin.com" && (
+            <button type="button" className={styles.buttonSubmit} onClick={() => getIdCard(id)}>
+              Edit
+            </button>
+          )}
+        </div>
       </div>
-    </button>
+    </div>
   );
 };
 

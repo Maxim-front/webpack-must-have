@@ -2,6 +2,7 @@
   margin: 0px auto 20px;
   width: 60%;
   position: relative;
+  display: flex;
 
   .input_search {
     display: flex;
@@ -12,6 +13,7 @@
     border-radius: 20px;
     border: 2px solid white;
     background-color: black;
+    margin-right: 10px;
 
     .searchbar {
       color: #8f8f8f;
@@ -33,5 +35,14 @@
         width: 35px;
       }
     }
+  }
+
+  .buttonSubmit {
+    background-color: rgb(127, 62, 143);
+    border-radius: 7px;
+    border-color: transparent;
+    padding: 4px 7px;
+    text-align: center;
+    cursor: pointer;
   }
 }

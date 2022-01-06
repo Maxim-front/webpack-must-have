@@ -1,5 +1,5 @@
 import { FaTimes } from "react-icons/fa";
-import InputText from "@/elements/inputText/inputText";
+import Input from "@/elements/inputs/inputText/input";
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { setUser } from "@/components/store/reducers/userReducer";
@@ -17,7 +17,6 @@ interface MyState {
 
 const SignUpModal = ({ isOpen, onClose }: MyState): JSX.Element | null => {
   const [login, setLogin] = useState("");
-  // const [userName, setUserName] = useState("");
   const [firstUserPassword, setFirstUserPassword] = useState("");
   const [secondUserPassword, setSecondUserPassword] = useState("");
   const [userNickName, setUserNickName] = useState("");
@@ -59,6 +58,7 @@ const SignUpModal = ({ isOpen, onClose }: MyState): JSX.Element | null => {
             userName: res.user.userName,
             email: login,
             id: res.user.id,
+            isLogged: true,
             description: res.user.description,
             password: firstUserPassword,
             image: res.user.image,
@@ -82,7 +82,7 @@ const SignUpModal = ({ isOpen, onClose }: MyState): JSX.Element | null => {
             </button>
           </div>
           <div className={styles.inputBlock}>
-            <InputText
+            <Input
               message="User Name"
               inputType="text"
               value={userNickName}
@@ -91,7 +91,7 @@ const SignUpModal = ({ isOpen, onClose }: MyState): JSX.Element | null => {
             />
           </div>
           <div className={styles.inputBlock}>
-            <InputText
+            <Input
               message="Login"
               inputType="text"
               value={login}
@@ -100,7 +100,7 @@ const SignUpModal = ({ isOpen, onClose }: MyState): JSX.Element | null => {
             />
           </div>
           <div className={styles.inputBlock}>
-            <InputText
+            <Input
               message="Password"
               inputType="text"
               value={firstUserPassword}
@@ -109,7 +109,7 @@ const SignUpModal = ({ isOpen, onClose }: MyState): JSX.Element | null => {
             />
           </div>
           <div className={styles.inputBlock}>
-            <InputText
+            <Input
               message="Repeat Password"
               inputType="text"
               value={secondUserPassword}

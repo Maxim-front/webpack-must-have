@@ -1,14 +1,15 @@
 import { useDebouncedCallback } from "use-debounce";
 import styles from "./filter.module.scss";
-import InputText from "../../../../elements/inputText/inputText";
+import Input from "../../../../elements/inputs/inputText/input";
 
 interface ProductsProps {
   onchange: (value: string, name?: string) => void;
+  platform: string;
 }
 
-const Filter = ({ onchange }: ProductsProps): JSX.Element => {
+const Filter = ({ onchange, platform }: ProductsProps): JSX.Element => {
   const debounced = useDebouncedCallback((value: string, name?: string) => {
-    onchange(value, name);
+    if (name) onchange(value.toLowerCase(), name);
   }, 500);
 
   const values = {
@@ -18,7 +19,7 @@ const Filter = ({ onchange }: ProductsProps): JSX.Element => {
 
   return (
     <div className={styles.filter}>
-      <h3 className={styles.product_title}>PC</h3>
+      <h3 className={styles.product_title}>{platform}</h3>
       <hr className={styles.horizontal_line} />
       <h4 className={styles.product_title}>Sort</h4>
       <hr className={styles.horizontal_line} />
@@ -58,7 +59,7 @@ const Filter = ({ onchange }: ProductsProps): JSX.Element => {
         <div className={styles.genres_content}>
           {values.genres.map((value) => (
             <div>
-              <InputText name="genres" inputType="radio" value={value} onChange={debounced} />
+              <Input name="genres" inputType="radio" value={value} onChange={debounced} />
               <span>{value}</span>
             </div>
           ))}
@@ -70,7 +71,7 @@ const Filter = ({ onchange }: ProductsProps): JSX.Element => {
         <div className={styles.age_content}>
           {values.ages.map((value) => (
             <div>
-              <InputText name="age" inputType="radio" value={value} onChange={debounced} />
+              <Input name="age" inputType="radio" value={value} onChange={debounced} />
               <span>{value}</span>
             </div>
           ))}

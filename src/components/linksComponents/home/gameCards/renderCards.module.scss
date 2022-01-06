@@ -8,6 +8,9 @@
   perspective: 1000px;
   background-color: black;
   border: none;
+  margin-bottom: 20px;
+  margin-right: 19px;
+  cursor: pointer;
 
   .front,
   .back {
@@ -31,9 +34,26 @@
     height: 100%;
     border-radius: 10px;
     transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     .backText {
       font-size: 80%;
+    }
+
+    .backButtons {
+      display: flex;
+      justify-content: space-around;
+
+      .buttonSubmit {
+        background-color: rgb(127, 62, 143);
+        border-radius: 7px;
+        border-color: transparent;
+        padding: 4px 7px;
+        text-align: center;
+        cursor: pointer;
+      }
     }
   }
 

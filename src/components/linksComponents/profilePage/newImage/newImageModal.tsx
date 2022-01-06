@@ -1,4 +1,4 @@
-import InputText from "@/elements/inputText/inputText";
+import Input from "@/elements/inputs/inputText/input";
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { FaTimes } from "react-icons/fa";
@@ -75,7 +75,7 @@ const NewImageModal = ({ user, closeModal }: RootState): JSX.Element | null => {
             </button>
           </div>
           <div className={styles.inputBlock}>
-            <InputText
+            <Input
               message="New Image"
               inputType="text"
               value={imageLink}
