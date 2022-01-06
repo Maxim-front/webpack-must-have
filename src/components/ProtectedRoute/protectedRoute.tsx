@@ -1,5 +1,6 @@
 import { Route, RouteProps, Redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { Suspense } from "react";
 
 interface ProtectedProps extends RouteProps {
   component: React.ComponentType<unknown>;
@@ -20,7 +21,11 @@ const ProtectedRoute: React.FC<ProtectedProps> = ({ component: Component, ...res
       {...rest}
       render={(props) => {
         if (isLogged) {
-          return <Component {...rest} {...props} />;
+          return (
+            <Suspense fallback={<progress />}>
+              <Component {...rest} {...props} />;
+            </Suspense>
+          );
         }
         return (
           <Redirect
