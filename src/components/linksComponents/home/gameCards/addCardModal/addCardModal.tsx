@@ -1,11 +1,11 @@
 import { FaTimes } from "react-icons/fa";
-import Modal from "@/modal/modal";
 import { useEffect, useState } from "react";
-import { addApiCard, deleteResource, editCard, getApiCardResourse } from "@/utils/network";
-import InputCheckBox from "@/elements/inputs/inputCheckbox/inputCheckbox";
-import Input from "@/elements/inputs/inputText/input";
 import { useDispatch } from "react-redux";
-import { setCard } from "@/components/store/reducers/userReducer";
+import { setCard } from "../../../../store/reducers/userReducer";
+import Input from "../../../../../elements/inputs/inputText/input";
+import InputCheckBox from "../../../../../elements/inputs/inputCheckbox/inputCheckbox";
+import { addApiCard, deleteResource, editCard, getApiCardResourse } from "../../../../../utils/network";
+import Modal from "../../../../../modal/modal";
 import styles from "./addCardModal.module.scss";
 import { API_CARD_HOME } from "../../../../../constants/api";
 import ImageModal from "./imageModal/imageModal";
