@@ -58,7 +58,7 @@ const Filter = ({ onchange, platform }: ProductsProps): JSX.Element => {
         <hr className={styles.horizontal_line} />
         <div className={styles.genres_content}>
           {values.genres.map((value) => (
-            <div>
+            <div key={value}>
               <Input name="genres" inputType="radio" value={value} onChange={debounced} />
               <span>{value}</span>
             </div>
@@ -70,7 +70,7 @@ const Filter = ({ onchange, platform }: ProductsProps): JSX.Element => {
         <hr className={styles.horizontal_line} />
         <div className={styles.age_content}>
           {values.ages.map((value) => (
-            <div>
+            <div key={value}>
               <Input name="age" inputType="radio" value={value} onChange={debounced} />
               <span>{value}</span>
             </div>
