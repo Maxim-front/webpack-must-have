@@ -14,22 +14,15 @@ interface InputProps {
 const InputCheckBox: FC<InputProps> = ({ message, checked, name, inputType, value, inputPlaceHolder, onChange }) => {
   const onchange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const element = e.target;
-    // console.log(e.target.value, e.target.checked);
-    // const checkBoxesValue: string[] = [];
-    // for (let index = 0; index < checkboxes.length; index++) {
-    //   if (checkboxes[index].checked) {
-    //     checkBoxesValue.push(checkboxes[index].value);
-    //   }
-    // }
     onChange(element);
   };
   return (
     <>
-      <label className={styles.inputLabel} htmlFor="finput">
+      <label className={styles.input_label} htmlFor="finput">
         {message}
       </label>
       <input
-        className={styles.inputText}
+        className={styles.input_text}
         name={name}
         type={inputType}
         value={value}
