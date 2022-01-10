@@ -18,11 +18,11 @@ const Input: FC<InputProps> = ({ message, name, inputType, value, inputPlaceHold
   };
   return (
     <>
-      <label className={styles.inputLabel} htmlFor="finput">
+      <label className={styles.input_label} htmlFor="finput">
         {message}
       </label>
       <input
-        className={styles.inputText}
+        className={styles.input_text}
         name={name}
         type={inputType}
         value={value}
