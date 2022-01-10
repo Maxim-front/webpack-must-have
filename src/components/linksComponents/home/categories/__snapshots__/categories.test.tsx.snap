@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div>
+  <p>
+    Categories
+  </p>
+  <div>
+    <div>
+      <a
+        href="https://www.rockstargames.com/"
+        rel="noreferrer"
+        target="_blank"
+      >
+        <img
+          alt="description"
+          src="test-file-stub"
+        />
+        <p>
+          PC
+        </p>
+      </a>
+    </div>
+    <div>
+      <a
+        href="https://www.rockstargames.com/"
+        rel="noreferrer"
+        target="_blank"
+      >
+        <img
+          alt="description"
+          src="test-file-stub"
+        />
+        <p>
+          Playstation 5
+        </p>
+      </a>
+    </div>
+    <div>
+      <a
+        href="https://www.rockstargames.com/"
+        rel="noreferrer"
+        target="_blank"
+      >
+        <img
+          alt="description"
+          src="test-file-stub"
+        />
+        <p>
+          XBox One
+        </p>
+      </a>
+    </div>
+  </div>
+</div>
+`;
