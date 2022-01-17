@@ -45,7 +45,7 @@ const AddCardModal = ({ toggleModal, isOpen, cardId }: CardModalProps): JSX.Elem
 
   const dispatch = useDispatch();
 
-  const initPlatforms = ["pc", "playStation", "xbox"];
+  const initPlatforms = ["pc", "playstation", "xbox"];
 
   const [cardData, setCardData] = useState<Card>({ ...initCard });
   const [isOpenImageModal, setIsOpenImageModal] = useState(false);
@@ -138,7 +138,7 @@ const AddCardModal = ({ toggleModal, isOpen, cardId }: CardModalProps): JSX.Elem
               <Input message="name" name="title" inputType="text" value={cardData.title} onChange={updateInput} />
             </div>
             <div className={styles.input_block}>
-              <Input message="platform" name="genres" inputType="text" value={cardData.genres} onChange={updateInput} />
+              <Input message="genres" name="genres" inputType="text" value={cardData.genres} onChange={updateInput} />
             </div>
             <div className={styles.input_block}>
               <Input message="Price" name="price" inputType="text" value={cardData.price} onChange={updateInput} />
@@ -162,11 +162,21 @@ const AddCardModal = ({ toggleModal, isOpen, cardId }: CardModalProps): JSX.Elem
                 defaultValue={cardData.age}
                 onChange={(e) => updateInput(e.target.value, e.target.name)}
               >
-                <option value="6" selected>
-                  6+
-                </option>
+                <option value="6">6+</option>
                 <option value="12">12+</option>
                 <option value="18">18+</option>
+              </select>
+              <select
+                name="rating"
+                className={styles.age_select}
+                defaultValue={cardData.rating}
+                onChange={(e) => updateInput(Number(e.target.value), e.target.name)}
+              >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
               </select>
             </div>
             <div className={styles.platform}>

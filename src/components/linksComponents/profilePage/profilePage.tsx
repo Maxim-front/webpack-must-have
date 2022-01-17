@@ -23,8 +23,8 @@ interface RootState {
 }
 
 const ProfilePage = (): JSX.Element => {
-  const [isChangePassword, setIsChangePassword] = useState(false);
-  const [isChangeImage, setIsChangeImage] = useState(false);
+  const [isChangePassword, setIsChangePassword] = useState<boolean>(false);
+  const [isChangeImage, setIsChangeImage] = useState<boolean>(false);
   const dispatch = useDispatch();
   const user = useSelector((state: RootState) => state.user);
 
@@ -76,25 +76,24 @@ const ProfilePage = (): JSX.Element => {
       notify();
     }
   };
+
   return (
-    <>
+    <div className={styles.profile_back}>
       <div className={styles.profile_page}>
         <div className={styles.header_profile}>
           <h3>User Name profile page</h3>
           <hr />
         </div>
-
         <div className={styles.main_profile}>
           <div className={styles.profile_image}>
             <div className={styles.image_block}>
               <img src={image} alt="description" className={styles.image} />
             </div>
-            <button type="button" className={styles.image_button} onClick={() => updateImage()}>
+            <button type="button" className={styles.image_button} onClick={updateImage}>
               Change profile image
             </button>
             {isChangeImage && <NewImageModal user={user} closeModal={closeModal} />}
           </div>
-
           <div className={styles.profile_description}>
             <form action="submit" className={styles.profile_form}>
               <div className={styles.username_form}>
@@ -136,7 +135,7 @@ const ProfilePage = (): JSX.Element => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 export default ProfilePage;

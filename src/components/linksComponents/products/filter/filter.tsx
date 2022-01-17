@@ -33,9 +33,7 @@ const Filter = ({ onchange, platform }: ProductsProps): JSX.Element => {
             onChange={(e) => debounced(e.target.value, e.target.name)}
           >
             <option value="rating">Rating</option>
-            <option value="price" selected>
-              Price
-            </option>
+            <option value="price">Price</option>
           </select>
         </div>
         <div className={styles.sort_content}>
@@ -46,9 +44,7 @@ const Filter = ({ onchange, platform }: ProductsProps): JSX.Element => {
             defaultValue="asc"
             onChange={(e) => debounced(e.target.value, e.target.name)}
           >
-            <option value="asc" selected>
-              ascending
-            </option>
+            <option value="asc">ascending</option>
             <option value="desc">descending</option>
           </select>
         </div>
