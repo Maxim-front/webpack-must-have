@@ -11,12 +11,24 @@ interface MyState {
 const Modal = ({ onClose, isOpen, children }: MyState): JSX.Element | null => {
   if (!isOpen) return null;
 
+  const keyHandler = (key: string) => {
+    if (key === "Enter") {
+      console.log("enter press here!");
+    }
+  };
+
   return ReactDOM.createPortal(
-    <button type="button" className={styles.modal} onClick={onClose}>
-      <button type="button" className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+    <div role="button" className={styles.modal} onClick={onClose} tabIndex={0} onKeyPress={(e) => keyHandler(e.key)}>
+      <div
+        role="button"
+        className={styles.modalContent}
+        onClick={(e) => e.stopPropagation()}
+        tabIndex={0}
+        onKeyPress={(e) => keyHandler(e.key)}
+      >
         {children}
-      </button>
-    </button>,
+      </div>
+    </div>,
     document.body
   );
 };

@@ -4,6 +4,7 @@ import { Suspense } from "react";
 
 interface ProtectedProps extends RouteProps {
   component: React.ComponentType<unknown>;
+  componentProps?: unknown;
 }
 
 interface RootState {
@@ -23,7 +24,7 @@ const ProtectedRoute: React.FC<ProtectedProps> = ({ component: Component, ...res
         if (isLogged) {
           return (
             <Suspense fallback={<progress />}>
-              <Component {...rest} {...props} />;
+              <Component {...rest} {...props} />
             </Suspense>
           );
         }

@@ -1,9 +1,10 @@
+/* eslint-disable react/require-default-props */
 import React, { useCallback, useState } from "react";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import debounce from "lodash/debounce";
 import { useSelector } from "react-redux";
 import { RootState } from "@/components/store/reducers/store";
-import { API_SEARCH } from "../../../../constants/api";
+import { API_SEARCH } from "@/constants/api";
 import { getApiCardResourse } from "../../../../utils/network";
 import styles from "./searchBar.module.scss";
 import ListResults from "./listResults/listResults";
@@ -19,7 +20,11 @@ interface Card {
   date: string;
 }
 
-const Searchbar = (): JSX.Element => {
+interface MyProps {
+  urlTest?: string;
+}
+
+const Searchbar = ({ urlTest = API_SEARCH }: MyProps): JSX.Element => {
   const [searchInput, setSearchInput] = useState("");
   const [items, setItems] = useState<Array<Card>>([]);
 
@@ -44,7 +49,7 @@ const Searchbar = (): JSX.Element => {
   const getResponse = async (param: string) => {
     setIsLoading(true);
     try {
-      const res = await getApiCardResourse<Array<Card>>(API_SEARCH + param);
+      const res = await getApiCardResourse<Array<Card>>(param);
       setIsLoading(false);
       setItems(res);
     } catch (error) {
@@ -60,7 +65,8 @@ const Searchbar = (): JSX.Element => {
   const searchItems = (searchValue: string) => {
     setSearchInput(searchValue);
     if (searchInput !== "") {
-      debouncedGetResponse(searchValue);
+      const qwery = `${urlTest}&title_like=${searchValue}`;
+      debouncedGetResponse(qwery);
     } else console.log("enter value");
   };
 

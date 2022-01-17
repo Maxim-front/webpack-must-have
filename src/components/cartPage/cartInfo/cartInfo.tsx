@@ -1,5 +1,6 @@
 import InputCheckBox from "@/elements/inputs/inputCheckbox/inputCheckbox";
-import { useState } from "react";
+import React, { useState } from "react";
+
 import styles from "./cartInfo.module.scss";
 
 interface Element {
@@ -51,20 +52,18 @@ const CartInfo = ({ cards, deleteItem, updateCards }: CartArray): JSX.Element =>
         cards.map(
           (element) =>
             element.id > 0 && (
-              <>
+              <React.Fragment key={element.id}>
                 <div className={styles.cart}>
                   <p>{element.title}</p>
                   <select
                     name="platform"
                     className={styles.sort_select}
-                    defaultValue={element.platform}
+                    defaultValue={element.platform[0]}
                     onChange={(e) => changeValues(e.target.value, e.target.name, element.id)}
                   >
-                    <option value="pc" selected>
-                      pc
-                    </option>
+                    <option value="pc">pc</option>
                     <option value="xbox">xbox</option>
-                    <option value="playStation">playStation</option>
+                    <option value="playstation">playStation</option>
                   </select>
                   <p>{new Date().toLocaleDateString()}</p>
                   <textarea
@@ -75,7 +74,7 @@ const CartInfo = ({ cards, deleteItem, updateCards }: CartArray): JSX.Element =>
                     cols={15}
                     rows={1}
                   />
-                  <p>{element.price}$</p>
+                  <p>{element.price * element.amount}$</p>
                   <InputCheckBox
                     name="gameCards"
                     inputType="checkbox"
@@ -84,7 +83,7 @@ const CartInfo = ({ cards, deleteItem, updateCards }: CartArray): JSX.Element =>
                   />
                 </div>
                 <hr className={styles.horizontal_line} />
-              </>
+              </React.Fragment>
             )
         )}
       <button type="submit" className={styles.buttonRemove} onClick={() => deleteItem(selectValues)}>

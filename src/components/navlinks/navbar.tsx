@@ -19,6 +19,7 @@ interface RootState {
 const Navbar = (): JSX.Element => {
   const [openSignUp, setOpenSignUp] = useState(false);
   const [openAbout, setOpenAbout] = useState(false);
+  const [openProducts, setOpenProducts] = useState(false);
   const [openSignIn, setOpenSignIn] = useState(false);
 
   const { userName, isLogged } = useSelector((state: RootState) => state.user);
@@ -42,12 +43,31 @@ const Navbar = (): JSX.Element => {
         </NavLink>
       </li>
       <li className={`${styles.item} ${styles.dropDown_link}`}>
-        <NavLink to="/products" activeClassName={styles.active}>
-          Products
-        </NavLink>
-        <div className={styles.dropDown_wrapper}>
-          <DropDown />
-        </div>
+        {!isLogged ? (
+          <button type="button" className={styles.modaleButton} onClick={() => setOpenProducts(true)}>
+            <NavLink to="/products" activeClassName={styles.active}>
+              Products
+            </NavLink>
+            {openProducts && (
+              <SignInModal
+                isOpen={openProducts}
+                onClose={() => {
+                  setOpenProducts(false);
+                }}
+                url="/products"
+              />
+            )}
+          </button>
+        ) : (
+          <>
+            <NavLink to="/products" activeClassName={styles.active}>
+              Products
+            </NavLink>
+            <div className={styles.dropDown_wrapper}>
+              <DropDown />
+            </div>
+          </>
+        )}
       </li>
       <li className={styles.item}>
         {!isLogged ? (

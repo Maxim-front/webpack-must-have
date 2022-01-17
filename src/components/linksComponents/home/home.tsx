@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "@/components/store/reducers/store";
 import { getApiCardResourse } from "../../../utils/network";
-import { API_CARDS } from "../../../constants/api";
+import { API_CARDS, API_SEARCH } from "../../../constants/api";
 import Categories from "./categories/categories";
 import Searchbar from "./searchBar/searchBar";
 import styles from "./home.module.scss";
@@ -36,7 +36,7 @@ const Home = (): JSX.Element => {
   }, [card]);
   return (
     <div className={styles.homecontent}>
-      <Searchbar />
+      <Searchbar urlTest={API_SEARCH} />
       <Categories />
       <Gamecards items={items} title="New Games" />
     </div>

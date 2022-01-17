@@ -27,7 +27,7 @@ module.exports = {
     "import/no-extraneous-dependencies": [
       "error",
       {
-        devDependencies: false,
+        devDependencies: true,
         optionalDependencies: false,
         peerDependencies: false,
         packageDir: "./",
@@ -40,7 +40,8 @@ module.exports = {
         ignoreRestArgs: false,
       },
     ],
-    "@typescript-eslint/no-use-before-define": "error",
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
     "require-await": "error",
     "prettier/prettier": ["error"],
     "react/jsx-filename-extension": ["error", { extensions: [".tsx"] }],
@@ -92,6 +93,9 @@ module.exports = {
       "@typescript-eslint/parser": [".ts", ".tsx"],
     },
     "import/resolver": {
+      node: {
+        extensions: [".js", ".jsx", ".ts", ".tsx"],
+      },
       typescript: {
         alwaysTryTypes: true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
         project: ["./tsconfig.json"],

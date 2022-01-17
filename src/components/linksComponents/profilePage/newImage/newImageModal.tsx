@@ -44,6 +44,7 @@ const NewImageModal = ({ user, closeModal }: RootState): JSX.Element | null => {
       dispatch(
         setUser({
           id,
+          isLogged: true,
           email,
           userName,
           description,
