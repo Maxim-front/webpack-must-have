@@ -13,7 +13,9 @@ const ListResults = (props: MyProps): JSX.Element => (
   <div className={styles.list_results}>
     <ul>
       {props.elements.map(({ id, title }) => (
-        <li key={id}>{title}</li>
+        <li key={id}>
+          {title} <hr />
+        </li>
       ))}
     </ul>
   </div>

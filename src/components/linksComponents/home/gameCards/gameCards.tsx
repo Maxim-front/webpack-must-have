@@ -34,7 +34,7 @@ function Gamecards({ items, title }: ProductProps): JSX.Element {
       <p className={styles.title}>{title}</p>
       <div className={styles.blockcards}>
         {items.map((element) => (
-          <RenderCards card={element} getIdCard={getIdCard} />
+          <RenderCards key={element.id} card={element} getIdCard={getIdCard} />
         ))}
       </div>
       {isOpenModal && <AddCardModal toggleModal={toggleModal} cardId={cardId} isOpen={isOpenModal} />}
