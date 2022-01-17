@@ -1,5 +1,8 @@
+import { API_SEARCH } from "@/constants/api";
+
 const SET_USER = "SET_USER";
 const SET_CARD = "SET_CARD";
+const SET_SEARCH = "SET_SEARCH";
 
 interface UserState {
   userName?: string;
@@ -99,7 +102,36 @@ export const cardReducer = (state = defaultCardState, action: CardAction): CardS
       return state;
   }
 };
+interface SearchState {
+  url: string;
+}
+
+interface SetSearchAction {
+  type: typeof SET_SEARCH;
+  payload: SearchState;
+}
+
+type SearchAction = SetSearchAction;
+
+const defaultSearchState: SearchState = {
+  url: API_SEARCH,
+};
+
+export const searchReducer = (state = defaultSearchState, action: SearchAction): SearchState => {
+  const search = action.payload;
+
+  switch (action.type) {
+    case SET_SEARCH:
+      return {
+        url: `${search.url}&title_like=`,
+      };
+    default:
+      return state;
+  }
+};
 
 export const setUser = (user: UserState): SetUserAction => ({ type: SET_USER, payload: user });
 
 export const setCard = (card: CardState): SetCardAction => ({ type: SET_CARD, payload: card });
+
+export const setSearch = (link: SearchState): SetSearchAction => ({ type: SET_SEARCH, payload: link });
