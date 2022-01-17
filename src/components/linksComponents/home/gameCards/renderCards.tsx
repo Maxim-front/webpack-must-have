@@ -1,8 +1,13 @@
 import { RootState } from "@/components/store/reducers/store";
 import { FC } from "react";
+import { v4 as uuidv4 } from "uuid";
 import { useSelector } from "react-redux";
 import StarRating from "../starRating/starRating";
 import styles from "./renderCards.module.scss";
+
+import playstation from "../../../../../public/playstation.png";
+import xbox from "../../../../../public/xbox.png";
+import pc from "../../../../../public/windows.png";
 
 interface Cards {
   id: number;
@@ -32,8 +37,14 @@ const RenderCards: FC<MyProps> = ({ card, getIdCard }: MyProps): JSX.Element => 
 
   const user = useSelector((state: RootState) => state.user);
 
-  const { email } = user;
+  const platformsPictures = { pc, playstation, xbox };
+  const renderPlatforms: string[] = [];
 
+  Object.entries(platformsPictures).forEach(([key, value]) => {
+    if (platform.includes(`${key}`)) renderPlatforms.push(`${value}`);
+  });
+
+  const { email } = user;
   const addCard = () => {
     const temp = localStorage.getItem("localCards");
     const persistedState: CartArray = temp ? JSON.parse(temp) : {};
@@ -62,6 +73,11 @@ const RenderCards: FC<MyProps> = ({ card, getIdCard }: MyProps): JSX.Element => 
       <div className={styles.front}>
         <div className={styles.icon}>
           <img src={image} alt="description" className={styles.images} />
+          <div className={styles.platforms}>
+            {renderPlatforms.map((elem) => (
+              <img key={uuidv4()} src={elem} alt="description" className={styles.platforms_image} />
+            ))}
+          </div>
         </div>
         <div className={styles.iconContent}>
           <p>{title}</p>
@@ -74,7 +90,7 @@ const RenderCards: FC<MyProps> = ({ card, getIdCard }: MyProps): JSX.Element => 
         <div className={styles.backButtons}>
           {email && email !== "admin@admin.com" && (
             <button type="button" className={styles.buttonSubmit} onClick={addCard}>
-              Add to Card
+              Add Card
             </button>
           )}
           {email === "admin@admin.com" && (
