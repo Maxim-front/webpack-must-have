@@ -1,106 +1,126 @@
 {
-    "users": [{
-            "email": "qwe@gmail.com",
-            "userName": "max",
-            "description": "redux",
-            "password": "$2a$10$QTf./98KU0Y/DaphhcDDkeRIRc4RFRUJEjEQp/sC9l2OxciCgEi2a",
-            "image": "https://media.springernature.com/full/springer-cms/rest/v1/img/18893370/v1/height/320",
-            "id": 1
-        },
-        {
-            "email": "admin@admin.com",
-            "userName": "admin",
-            "description": "admin@admin.com",
-            "password": "$2a$10$QTf./98KU0Y/DaphhcDDkeRIRc4RFRUJEjEQp/sC9l2OxciCgEi2a",
-            "image": "https://media.springernature.com/full/springer-cms/rest/v1/img/18893370/v1/height/320",
-            "id": 2
-        }
-    ],
-    "cards": [{
-            "id": 1,
-            "image": "https://www.iphones.ru/wp-content/uploads/2021/09/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA-%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0-2021-09-07-%D0%B2-19.48.05.jpg",
-            "title": "Overwatch",
-            "price": 23.99,
-            "text": "Overwatch is a 2016 team-based multiplayer first-person shooter game developed and published by Blizzard Entertainment.",
-            "rating": 3,
-            "age": "12",
-            "genres": "shooter",
-            "platform": [
-                "xbox",
-                "pc"
-            ],
-            "date": "1999-11-17"
-        },
-        {
-            "id": 2,
-            "image": "https://www.iphones.ru/wp-content/uploads/2021/09/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA-%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0-2021-09-07-%D0%B2-19.48.05.jpg",
-            "title": "Terraria",
-            "price": 4.99,
-            "age": "18",
-            "text": "Terraria is a 3D sandbox game with gameplay that revolves around exploration, building, crafting, combat, survival, and mining, playable in both single-player and multiplayer modes.",
-            "rating": 4,
-            "genres": "shooter",
-            "platform": ["pc"],
-            "date": "2015-11-17"
-        },
-        {
-            "id": 3,
-            "age": "18",
-            "image": "https://upload.wikimedia.org/wikipedia/ru/3/33/Overwatch_Origins_Edition_PC_cover.jpg",
-            "title": "Overwatch",
-            "price": 8.99,
-            "text": "Overwatch is a 2016 team-based multiplayer first-person shooter game developed and published by Blizzard Entertainment.",
-            "rating": 3,
-            "genres": "shooter",
-            "platform": [
-                "xbox",
-                "pc"
-            ],
-            "date": "1999-11-17"
-        },
-        {
-            "id": 4,
-            "age": "18",
-            "image": "https://image.api.playstation.com/vulcan/img/cfn/11307x4B5WLoVoIUtdewG4uJ_YuDRTwBxQy0qP8ylgazLLc01PBxbsFG1pGOWmqhZsxnNkrU3GXbdXIowBAstzlrhtQ4LCI4.png",
-            "title": "Minecraft",
-            "price": 3.99,
-            "text": "Minecraft is a sandbox video game developed by the Swedish video game developer Mojang Studios.",
-            "rating": 5,
-            "genres": "arcade",
-            "platform": [
-                "xbox",
-                "pc"
-            ],
-            "date": "2019-11-17"
-        },
-        {
-            "id": 5,
-            "age": "18",
-            "image": "https://s3.gaming-cdn.com/images/products/932/orig/game-steam-terraria-cover.jpg",
-            "title": "Terraria",
-            "price": 7.99,
-            "genres": "survive",
-            "text": "Terraria is a 2D sandbox game with gameplay that revolves around exploration, building, crafting, combat, survival, and mining, playable in both single-player and multiplayer modes.",
-            "rating": 3,
-            "platform": [
-                "xbox",
-                "pc"
-            ],
-            "date": "2015-11-17"
-        },
-        {
-            "id": 6,
-            "age": "18",
-            "image": "https://s3.gaming-cdn.com/images/products/932/orig/game-steam-terraria-cover.jpg",
-            "title": "Terraria",
-            "price": 6.99,
-            "genres": "survive",
-            "text": "Terraria is a 2D sandbox game with gameplay that revolves around exploration, building, crafting, combat, survival, and mining, playable in both single-player and multiplayer modes.",
-            "rating": 4,
-            "platform": [
-                "xbox", "playstation"
-            ],
-            "date": "2016-11-17"
-        }
-    ]
+  "users": [
+    {
+      "email": "qwe@gmail.com",
+      "userName": "maxim",
+      "description": "mvc",
+      "password": "$2a$10$J6EnL.OxOEQz3ou3mZn/XuXZ2t27C7qnu9UG/6Hkzt91UKw1UKfv6",
+      "image": "https://images.news18.com/ibnlive/uploads/2021/06/1622715559_disha.jpg",
+      "id": 1
+    },
+    {
+      "email": "admin@admin.com",
+      "userName": "admin",
+      "description": "admin@admin.com",
+      "password": "$2a$10$QTf./98KU0Y/DaphhcDDkeRIRc4RFRUJEjEQp/sC9l2OxciCgEi2a",
+      "image": "https://media.springernature.com/full/springer-cms/rest/v1/img/18893370/v1/height/320",
+      "id": 2
+    },
+    {
+      "email": "alex@gmail.com",
+      "password": "$2a$10$rmrZdLL3kSbVcXaLaVx/.e5ec/4Uw6Yzb3B7UQkzh8fg.bjPuL7xm",
+      "userName": "alexey",
+      "description": "profile description",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/No_picture_available.png/401px-No_picture_available.png",
+      "id": 3
+    },
+    {
+      "email": "max@gmail.com",
+      "userName": "max",
+      "description": "MVC",
+      "password": "$2a$10$.2JOI7XrM/Tbwh9NuCA8IO7VMN.R.dMjXuAVuaah4booQhOipd1ca",
+      "image": "data:image/jpeg;base64,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",
+      "id": 4
+    }
+  ],
+  "cards": [
+    {
+      "id": 1,
+      "image": "https://www.iphones.ru/wp-content/uploads/2021/09/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA-%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0-2021-09-07-%D0%B2-19.48.05.jpg",
+      "title": "Overwatch",
+      "price": 23.99,
+      "text": "Overwatch is a 2016 team-based multiplayer first-person shooter game developed and published by Blizzard Entertainment.",
+      "rating": 3,
+      "age": "12",
+      "genres": "shooter",
+      "platform": [
+        "xbox",
+        "pc"
+      ],
+      "date": "1999-11-17"
+    },
+    {
+      "id": 2,
+      "image": "https://www.iphones.ru/wp-content/uploads/2021/09/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA-%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0-2021-09-07-%D0%B2-19.48.05.jpg",
+      "title": "Terraria",
+      "price": 4.99,
+      "age": "18",
+      "text": "Terraria is a 3D sandbox game with gameplay that revolves around exploration, building, crafting, combat, survival, and mining, playable in both single-player and multiplayer modes.",
+      "rating": 4,
+      "genres": "shooter",
+      "platform": [
+        "pc"
+      ],
+      "date": "2015-11-17"
+    },
+    {
+      "id": 3,
+      "age": "18",
+      "image": "https://upload.wikimedia.org/wikipedia/ru/3/33/Overwatch_Origins_Edition_PC_cover.jpg",
+      "title": "Overwatch",
+      "price": 8.99,
+      "text": "Overwatch is a 2016 team-based multiplayer first-person shooter game developed and published by Blizzard Entertainment.",
+      "rating": 3,
+      "genres": "shooter",
+      "platform": [
+        "xbox",
+        "pc"
+      ],
+      "date": "1999-11-17"
+    },
+    {
+      "id": 4,
+      "age": "18",
+      "image": "https://image.api.playstation.com/vulcan/img/cfn/11307x4B5WLoVoIUtdewG4uJ_YuDRTwBxQy0qP8ylgazLLc01PBxbsFG1pGOWmqhZsxnNkrU3GXbdXIowBAstzlrhtQ4LCI4.png",
+      "title": "Minecraft",
+      "price": "20.99",
+      "text": "Minecraft is a sandbox video game developed by the Swedish video game developer Mojang Studios.",
+      "rating": 5,
+      "genres": "arcade",
+      "platform": [
+        "xbox"
+      ],
+      "date": "2019-11-17"
+    },
+    {
+      "id": 5,
+      "age": "18",
+      "image": "https://s3.gaming-cdn.com/images/products/932/orig/game-steam-terraria-cover.jpg",
+      "title": "Terraria",
+      "price": 7.99,
+      "genres": "survive",
+      "text": "Terraria is a 2D sandbox game with gameplay that revolves around exploration, building, crafting, combat, survival, and mining, playable in both single-player and multiplayer modes.",
+      "rating": 3,
+      "platform": [
+        "xbox",
+        "pc"
+      ],
+      "date": "2015-11-17"
+    },
+    {
+      "id": 6,
+      "age": "18",
+      "image": "https://s3.gaming-cdn.com/images/products/932/orig/game-steam-terraria-cover.jpg",
+      "title": "Terraria",
+      "price": 6.99,
+      "genres": "survive",
+      "text": "Terraria is a 2D sandbox game with gameplay that revolves around exploration, building, crafting, combat, survival, and mining, playable in both single-player and multiplayer modes.",
+      "rating": 4,
+      "platform": [
+        "xbox",
+        "playstation"
+      ],
+      "date": "2016-11-17"
+    }
+  ]
 }
