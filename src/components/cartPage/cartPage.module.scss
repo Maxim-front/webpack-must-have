@@ -1,9 +1,9 @@
 .cart_page {
-  background-color: black;
-  border: brown 2px solid;
+  background-size: cover;
+  background-image: url(https://storge.pic2.me/c/1360x800/266/5bad5afdc202d.jpg);
+  min-height: 900px;
   padding: 10px 30px;
-  width: 80%;
-  margin: 0 auto;
+  width: 100%;
 
   .cart_title {
     margin-bottom: 5px;
@@ -23,14 +23,19 @@
   }
 
   .cart_page_footer {
+    background-color: black;
+    padding: 10px;
     display: flex;
     justify-content: space-evenly;
+    border: 1px solid rgb(127, 62, 143);
 
     .buttonBuy {
+      display: block;
       background-color: rgb(127, 62, 143);
       border-radius: 7px;
       border-color: transparent;
       padding: 4px 7px;
+      cursor: pointer;
     }
   }
 }
