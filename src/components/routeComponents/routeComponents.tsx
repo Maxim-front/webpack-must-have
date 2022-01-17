@@ -1,18 +1,35 @@
+import React, { Suspense } from "react";
 import { Route, Switch } from "react-router-dom";
-import CartPage from "../cartPage/cartPage";
-import About from "../linksComponents/about/about";
 import Home from "../linksComponents/home/home";
-import Products from "../linksComponents/products/products";
-import ProfilePage from "../linksComponents/profilePage/profilePage";
+// import Products from "../linksComponents/products/products";
 import ProtectedRoute from "../ProtectedRoute/protectedRoute";
+
+const Products = React.lazy(() => import("../linksComponents/products/products"));
+const About = React.lazy(() => import("../linksComponents/about/about"));
+const ProfilePage = React.lazy(() => import("../linksComponents/profilePage/profilePage"));
+const CartPage = React.lazy(() => import("../cartPage/cartPage"));
 
 const Routecomponents = (): JSX.Element => (
   <div>
     <Switch>
-      <Route path="/products/xbox" render={() => <Products platform="xbox" />} />
+      <Route
+        path="/products/xbox"
+        render={() => (
+          <Suspense fallback={<progress />}>
+            <Products platform="xbox" />
+          </Suspense>
+        )}
+      />
       <Route path="/products/playstation" render={() => <Products platform="playstation" />} />
       <Route path="/products/pc" render={() => <Products platform="pc" />} />
-      <Route path="/products/" render={() => <Products platform="" />} />
+      <Route
+        path="/products"
+        render={() => (
+          <Suspense fallback={<progress />}>
+            <Products platform="" />
+          </Suspense>
+        )}
+      />
       <ProtectedRoute path="/about" component={About} />
       <ProtectedRoute path="/profile" component={ProfilePage} />
       <ProtectedRoute path="/home/order_list" component={CartPage} />

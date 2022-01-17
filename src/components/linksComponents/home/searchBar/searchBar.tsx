@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import React, { useCallback, useState } from "react";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import debounce from "lodash/debounce";
 import { useSelector } from "react-redux";
@@ -89,4 +89,4 @@ const Searchbar = (): JSX.Element => {
   );
 };
 
-export default Searchbar;
+export default React.memo(Searchbar);
