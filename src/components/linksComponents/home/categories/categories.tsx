@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import styles from "./categories.module.scss";
 import playstation from "../../../../../public/playstation.png";
 import xbox from "../../../../../public/xbox.png";
@@ -9,24 +8,25 @@ const Categories = (): JSX.Element => (
     <p className={styles.title}>Categories</p>
     <div className={styles.blockcards}>
       <div className={styles.card}>
-        <Link to={{ pathname: "https://www.rockstargames.com/" }} target="_blank">
+        <a href="https://www.rockstargames.com/" target="_blank" rel="noreferrer">
+          {/* <Link to={{ pathname: "https://www.rockstargames.com/" }} target="_blank"> */}
           <img src={windows} alt="description" className={styles.icon} />
           <p className={styles.description}>PC</p>
-        </Link>
+        </a>
       </div>
 
       <div className={styles.card}>
-        <Link to={{ pathname: "https://www.rockstargames.com/" }} target="_blank">
+        <a href="https://www.rockstargames.com/" target="_blank" rel="noreferrer">
           <img src={playstation} alt="description" className={styles.icon} />
           <p className={styles.description}>Playstation 5</p>
-        </Link>
+        </a>
       </div>
 
       <div className={styles.card}>
-        <Link to={{ pathname: "https://www.rockstargames.com/" }} target="_blank" className={styles.icon}>
+        <a href="https://www.rockstargames.com/" target="_blank" rel="noreferrer">
           <img src={xbox} alt="description" className={styles.icon} />
           <p className={styles.description}>XBox One</p>
-        </Link>
+        </a>
       </div>
     </div>
   </div>
